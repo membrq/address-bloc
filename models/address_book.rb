@@ -9,22 +9,23 @@ class AddressBook
 
   def add_entry(name, phone_number, email)
     index = 0
-    entries.each do |entry|
+    @entries.each do |entry|
       if name < entry.name
         break
       end
       index += 1
     end
-    entries.insert(index, Entry.new(name, phone_number, email))
+    @entries.insert(index, Entry.new(name, phone_number, email))
   end
 
   def remove_entry(name, phone_number, email)
-    entries.each do |entry|
-      if name == entry.name
-        entry.delete
+    delete_entry = nil
+
+    @entries.each do |entry|
+      if name == entry.name && phone_number == entry.phone_number && email == entry.email
+        delete_entry = entry
       end
-      index -= 1
     end
-    entries.remove(index, Entry(name, phone_number, email))
+    @entries.delete(delete_entry)
   end
 end
