@@ -48,4 +48,11 @@ class AddressBook
 
     return nil
   end
+
+  def remove_entry(name, phone_number, email)
+
+    @entries.delete_if do |entry|
+      name == entry.name && phone_number == entry.phone_number && email == entry.email
+    end
+  end
 end

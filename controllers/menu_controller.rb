@@ -143,7 +143,7 @@ class MenuController
   end
 
   def destroy_all_entries
-    address_book.entries.delete
+    address_book.entries.clear
     puts "All entries have been deleted"
   end
 
